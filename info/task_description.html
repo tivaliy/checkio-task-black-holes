@@ -1,0 +1,146 @@
+<div class="story">
+    <p> &quot;Wow! That was amazing!&quot; Stephen was greatly impressed. He took his eyes off the telescope and leaned back.</p>
+    <p> &quot;Did you see that?&quot; asked Sofia.</p>
+    <p> ...A minute ago a huge black hole &quot;swallowed&quot; another one...</p>
+    <p> &quot;You were right Sofia, that was an incredible event&quot; Stephen said. &quot;So, can I join your A&A (Astronomy & Astrophysics) research group?&quot; </p>
+    <p> Sofia looked at him triumphantly and said - &quot;Really, that was my plan to rope you into! We are now researching black holes and their gravitation field. So we are looking for someone to help us to create a software model that will predict the future state of black holes&quot;.</p>
+    <p> &quot;Hmm, It's very interesting. I'm trying to do my best&quot;.
+</div>
+<p>
+    You have to help Stephen to implement software model (function) that predicts state of black holes under control. A&A research team has identified some peculiarities in the behavior of black holes.
+</p>
+<p>
+    To create software model one should take into account:
+</p>
+<p>
+    1. Cartesian coordinate system is used.<br>
+    2. Each black hole is represented as a circle with <i>x</i>, <i>y</i> (coordinates) and <i>r</i> (radius).<br>
+    3. In contrast to the area, which may change during the absorption process, the coordinates remain constant.<br>
+    4. Area of black hole greatly influences on its mass, hence gravity field.<br>
+    5. The absorption process of black holes depends on distance between their centers - starting from the minimal. If the distance between different black holes is equal then first pair should be taken into account.<br>
+    6. The absorption process (merging) of black holes possible <span style="text-decoration: underline">if and only if two conditions are met</span>:<br>
+    &nbsp;&nbsp;&nbsp;- Intersection area of one of two black holes is greater or equal 55% (>= 55%) of its current area.<br>
+    &nbsp;&nbsp;&nbsp;- The area of one of two black holes is dominated over 20% (>= 20%).<br>
+    7. If one black hole absorbs another one their areas are summarized (S<sub>total</sub> = S<sub>1</sub> + S<sub>2</sub>).<br>
+    8. The absorption process continues as long as all conditions are met (see p. 6).
+</p>
+<p>
+    Let's see some simple examples:
+</p>
+<div class="for_info_only" style="text-align: center">
+    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+	<tbody>
+		<tr style="text-align: center; font-size: 10pt">
+			<td>
+                Input: [(2, 4, 2), (3, 9, 3)]<br>
+                No intersection<br>
+                Output: [(2, 4, 2), (3, 9, 3)]<br><br><br><br>
+                <img title="first-example" src="{{MEDIA}}fiqure_1.png" alt="first-example" width="143"/>
+            </td>
+			<td>
+                Input: [(0, 0, 2), (-1, 0, 2)]<br>
+                S<sub>1</sub> = 12.57; S<sub>2</sub> = 12.57<br>
+                Intersection area = 7.05<br>
+                p<sub>1</sub> = 56% p<sub>2</sub> = 56%<br>
+                Domination: 0%<br>
+                Output: [(0, 0, 2), (-1, 0, 2)]<br>
+                <img title="first-example" src="{{MEDIA}}fiqure_2.png" alt="first-example" width="210"/>
+            </td>
+            <td>
+                Input: [(1, 3, 2), (1, 3, 2.19)]<br>
+                S<sub>1</sub> = 12.57; S<sub>2</sub> = 15.07<br>
+                Domination: 19.9%<br>
+                Output: [(1, 3, 2), (1, 3, 2.19)]<br><br><br>
+                <img title="first-example" src="{{MEDIA}}fiqure_3.png" alt="first-example" width="198"/>
+            </td>
+        </tr>
+	</tbody>
+    </table>
+</div>
+<p>
+    More complex example: [(2, 2, 3), (0, 4, 2), (6, 6, 2), (4.7, 3, 0.5)]
+</p>
+<div class="for_info_only">
+    <table border="0" cellpadding="0" cellspacing="0" style="width:100%; font-size: 10pt">
+	<tbody>
+        <tr style="text-align: center">
+			<td>
+                Steps
+            </td>
+            <td>
+                <i>Before</i>
+            </td>
+        </tr>
+		<tr style="text-align: center;">
+			<td>
+                Input: [(2, 2, 3), (0, 4, 2), (4, 6, 2), (4.7, 3, 0.5)]<br>
+                R1, R2 - distance (2.83); S<sub>1</sub> = 28.27; S<sub>2</sub> = 12.57<br>
+                Intersection area = 6.03<br>
+                p<sub>1</sub> = 21% p<sub>2</sub> = 48%<br>
+                Output: [(2, 2, 3), (0, 4, 2), (4, 6, 2), (4.7, 3, 0.5)]<br>
+                ----------------------------------------------------------<br>
+                Input: [(2, 2, 3), (0, 4, 2), (4, 6, 2), (4.7, 3, 0.5)]<br>
+                R1, R4 - distance (2.88); S<sub>1</sub> = 28.27; S<sub>4</sub> = 0.79<br>
+                Intersection area = 0.5<br>
+                p<sub>1</sub> = 2% p<sub>4</sub> = 63%<br>
+                Output: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+                ----------------------------------------------------------<br>
+                Input: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+                R1, R2 - distance (2.83); S<sub>1</sub> = 29.03; S<sub>2</sub> = 12.57<br>
+                Intersection area = 6.2<br>
+                p<sub>1</sub> = 21% p<sub>4</sub> = 49%<br>
+                Output: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+                ----------------------------------------------------------<br>
+                Input: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+                R1, R3 - distance (4.47); S<sub>1</sub> = 29.03; S<sub>2</sub> = 12.57<br>
+                Intersection area = 0.8<br>
+                p<sub>1</sub> = 3% p<sub>4</sub> = 7%<br>
+                Output: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+                ----------------------------------------------------------<br>
+                Input: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+                R2, R3 - distance (4.47)<br>
+                S<sub>1</sub> = 12.57; S<sub>2</sub> = 12.57<br>
+                No intersection<br>
+                ----------------------------------------------------------<br>
+                Output: [(2, 2, 3.04), (0, 4, 2), (4, 6, 2)]<br>
+            </td>
+            <td>
+                <img title="first-example" src="{{MEDIA}}fiqure_4.png" alt="first-example" width="240"/><br>
+                <i>After</i><br>
+                <img title="first-example" src="{{MEDIA}}fiqure_5.png" alt="first-example" width="240"/>
+            </td>
+        </tr>
+	</tbody>
+    </table>
+</div>
+<br>
+<p>
+    <strong>Input: </strong> A list of tuples [(x, y, r), ..., ...], where x, y - coordinates, r - radius of a black hole
+</p>
+
+<p>
+    <strong>Output: </strong> Predictable (final) state of black holes as a list of tuples [(x, y, r), ..., ...], radius should be given with two digits precision as &plusmn;0.01.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Example:</strong>
+    </p>
+    <textarea data-code="python">
+checkio([(0, 0, 2.1)]) == [(0, 0, 2.1)]
+checkio([(2, 4, 2), (3, 9, 3)]) == [(2, 4, 2), (3, 9, 3)]
+checkio([(3, 3, 3), (2, 2, 1), (3, 5, 1.5)]) == [(3, 3, 3.5)]</textarea>
+</div>
+
+<p class="for_info_only">
+    <strong>How it is used: </strong>
+    <i>
+        You can use this in game developing (see <a href="https://en.wikipedia.org/wiki/Agar.io" title="Agar.io wiki">Agar.io</a> example), studying geometry or developing software models of real physical processes.
+    </i>
+</p>
+<p>
+    <strong>Precondition:</strong>
+    1 &le; len(data) &le; 20<br>
+    0.5 &le; radius &le; 10<br>
+    x &isin; [-100; 100], y &isin; [-100; 100]<br>
+</p>
