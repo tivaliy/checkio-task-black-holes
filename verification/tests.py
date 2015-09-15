@@ -12,10 +12,10 @@ TESTS = {
     "Basics": [
         {
             "input": [
-                (0, 0, 2.1)
+                [0, 0, 2.1]
             ],
             "answer": [
-                (0, 0, 2.1)
+                [0, 0, 2.1]
             ],
             "explanation": "Single black hole"
         },
