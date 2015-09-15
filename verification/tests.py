@@ -12,10 +12,10 @@ TESTS = {
     "Basics": [
         {
             "input": [
-                [0, 0, 2.1]
+                (0, 0, 2.1)
             ],
             "answer": [
-                [0, 0, 2.1]
+                (0, 0, 2.1)
             ],
             "explanation": "Single black hole"
         },
@@ -134,7 +134,7 @@ TESTS = {
                 [6, 3, 2]
             ],
             "answer": [
-                [3, 3, 4.13]
+                [3, 3, 4.12]
             ],
             "explanation": "Merging and getting bigger"
         },
