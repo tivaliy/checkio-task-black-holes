@@ -7,8 +7,23 @@ from checkio.referees import checkers
 from tests import TESTS
 
 
-cover = """def cover(f, data):
-    return f(list(tuple(d) for d in data))"""
+# cover = """def cover(f, data):
+#     return f(list(tuple(d) for d in data))"""
+cover = """def cover(func, data):
+    cdata = list(tuple(d) for d in data)
+    res = func(cdata)
+    if not isinstance(res, tuple):
+        raise TypeError("Must be a tuple.")
+    return res, str(res)
+"""
+
+
+def checker(data, user_data):
+    user_result, str_result = user_data
+    for t in user_result:
+        if not isinstance(t, tuple):
+            return False, (False, "You should return a list of tuples.")
+    return True, (True, "Great")
 
 
 api.add_listener(
@@ -19,7 +34,5 @@ api.add_listener(
             'python-27': cover,
             'python-3': cover
         },
-        # add_allowed_modules=[],
-        # add_close_builtins=[],
-        # remove_allowed_modules=[]
+        checker=checker,
     ).on_ready)
