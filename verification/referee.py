@@ -7,15 +7,15 @@ from checkio.referees import checkers
 from tests import TESTS
 
 
-# cover = """def cover(f, data):
-#     return f(list(tuple(d) for d in data))"""
-cover = """def cover(func, data):
-    cdata = list(tuple(d) for d in data)
-    res = func(cdata)
-    if not isinstance(res, list):
-        raise TypeError("Must be a list.")
-    return res, str(res)
-"""
+cover = """def cover(f, data):
+    return f(list(tuple(d) for d in data))"""
+# cover = """def cover(func, data):
+#     cdata = list(tuple(d) for d in data)
+#     res = func(cdata)
+#     if not isinstance(res, list):
+#         raise TypeError("Must be a list.")
+#     return res, str(res)
+# """
 
 
 def checker(data, user_data):
