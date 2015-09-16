@@ -12,8 +12,8 @@ from tests import TESTS
 cover = """def cover(func, data):
     cdata = list(tuple(d) for d in data)
     res = func(cdata)
-    if not isinstance(res, tuple):
-        raise TypeError("Must be a tuple.")
+    if not isinstance(res, list):
+        raise TypeError("Must be a list.")
     return res, str(res)
 """
 
