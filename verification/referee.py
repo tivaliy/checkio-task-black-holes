@@ -19,8 +19,8 @@ cover = """def cover(f, data):
 
 
 def checker(data, user_data):
-    user_result, str_result = user_data
-    for t in user_result:
+    # user_result, str_result = user_data
+    for t in user_data:
         if not isinstance(t, tuple):
             return False, (False, "You should return a list of tuples.")
     return True, (True, "Great")
