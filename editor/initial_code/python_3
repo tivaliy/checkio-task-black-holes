@@ -5,8 +5,20 @@ def checkio(data):
     return []
 
 if __name__ == '__main__':
-    #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert checkio([(2, 4, 2), (3, 9, 3)]) == [[2, 4, 2], [3, 9, 3]]
-    assert checkio([(0, 0, 2), (-1, 0, 2)]) == [[0, 0, 2], [-1, 0, 2]]
-    assert checkio([(4, 3, 2), (2.5, 3.5, 1.4)]) == [[4, 3, 2.44]]
-    assert checkio([(3, 3, 3), (2, 2, 1), (3, 5, 1.5)]) == [[3, 3, 3.5]]
+    # These "asserts" using only for self-checking and not necessary for auto-testing
+    def checker(user_ans, right_ans):
+        if not isinstance(user_ans, (list, tuple)) or \
+                any(not isinstance(line, (list, tuple)) for line in user_ans):
+            return False
+        if any(not isinstance(x, (float, int)) for l in user_ans for x in l):
+            return False
+        precision = 0.01
+        return all(abs(right_coord - user_coord) <= precision
+                   for right_line, user_line in zip(right_ans, user_ans)
+                   for right_coord, user_coord in zip(right_line, user_line))
+
+
+    assert checker(checkio([(2, 4, 2), (3, 9, 3)]), [(2, 4, 2), (3, 9, 3)])
+    assert checker(checkio([(0, 0, 2), (-1, 0, 2)]), [(0, 0, 2), (-1, 0, 2)])
+    assert checker(checkio([(4, 3, 2), (2.5, 3.5, 1.4)]), [(4, 3, 2.44)])
+    assert checker(checkio([(3, 3, 3), (2, 2, 1), (3, 5, 1.5)]), [(3, 3, 3.5)])
