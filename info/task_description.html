@@ -1,31 +1,33 @@
 <div class="story">
     <p> &quot;Wow! That was amazing!&quot; Stephen was greatly impressed. He took his eyes off the telescope and leaned back.</p>
     <p> &quot;Did you see that?&quot; asked Sofia.</p>
-    <p> ...A minute ago a huge black hole &quot;swallowed&quot; another one...</p>
+    <p> ...moments ago a super massive black hole had just &quot;swallowed&quot; another one...</p>
     <p> &quot;You were right Sofia, that was an incredible event&quot; Stephen said. &quot;So, can I join your A&A (Astronomy & Astrophysics) research group?&quot; </p>
-    <p> Sofia looked at him triumphantly and said - &quot;Really, that was my plan to rope you into! We are now researching black holes and their gravitation field. So we are looking for someone to help us to create a software model that will predict the future state of black holes&quot;.</p>
-    <p> &quot;Hmm, It's very interesting. I'm trying to do my best&quot;.
+    <p> Sofia looked at him triumphantly and said - &quot;Really, my plan to rope you into it anyway! We are currently researching black holes and their gravitational fields, and are looking for someone to help us to create a software model that will predict the future state of black holes&quot;.</p>
+    <p> &quot;Hmm, It's very interesting. I'll try to do my best&quot;.
 </div>
 <p>
-    You have to help Stephen to implement software model (function) that predicts state of black holes under control. A&A research team has identified some peculiarities in the behavior of black holes.
+    You need to help Stephen to implement a software model (function) that predicts the state of black holes under controlled environment. The A&A research team has identified some peculiarities in the behavior of black holes.
 </p>
 <p>
     To create software model one should take into account:
 </p>
+<ol>
+	<li>The cartesian coordinate system is used to map it out.<br>
+	<li>Each black hole is represented as a circle with <i>x</i> and <i>y</i> (coordinates) and the <i>r</i> (radius).</li>
+	<li>In contrast to the area, which may change during the absorption process, the coordinates remain constant.</li>
+	<li>The area of a black hole greatly influences its mass, hence the gravitational field.</li>
+	<li>The absorption process of black holes depends on distance between their centers - starting from the minimal. If the distance between different black holes is equal then first pair should be taken into account.</li>
+	<li>The absorption process (merging) of black holes is possible <span style="text-decoration: underline">if and only if the following conditions are met</span>:</li>
+	<ul>
+		<li>The intersection area of one of the two black holes is greater or equal 55% (>= 55%) of its current area.</li>
+		<li>The area of one of the two black holes is over 20% larger (>= 20%).</li>
+	</ul>
+	<li>If one black hole absorbs another, their areas are summarized as (S<sub>total</sub> = S<sub>1</sub> + S<sub>2</sub>).</li>
+	<li>The absorption process continues as long as all conditions are met (see p. 6).</li>
+</ol>
 <p>
-    1. Cartesian coordinate system is used.<br>
-    2. Each black hole is represented as a circle with <i>x</i>, <i>y</i> (coordinates) and <i>r</i> (radius).<br>
-    3. In contrast to the area, which may change during the absorption process, the coordinates remain constant.<br>
-    4. Area of black hole greatly influences on its mass, hence gravity field.<br>
-    5. The absorption process of black holes depends on distance between their centers - starting from the minimal. If the distance between different black holes is equal then first pair should be taken into account.<br>
-    6. The absorption process (merging) of black holes possible <span style="text-decoration: underline">if and only if two conditions are met</span>:<br>
-    &nbsp;&nbsp;&nbsp;- Intersection area of one of two black holes is greater or equal 55% (>= 55%) of its current area.<br>
-    &nbsp;&nbsp;&nbsp;- The area of one of two black holes is dominated over 20% (>= 20%).<br>
-    7. If one black hole absorbs another one their areas are summarized (S<sub>total</sub> = S<sub>1</sub> + S<sub>2</sub>).<br>
-    8. The absorption process continues as long as all conditions are met (see p. 6).
-</p>
-<p>
-    Let's see some simple examples:
+    Let's look at some simple examples:
 </p>
 <div class="for_info_only" style="text-align: center">
     <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
@@ -135,7 +137,7 @@ checkio([(3, 3, 3), (2, 2, 1), (3, 5, 1.5)]) == [(3, 3, 3.5)]</textarea>
 <p class="for_info_only">
     <strong>How it is used: </strong>
     <i>
-        You can use this in game developing (see <a href="https://en.wikipedia.org/wiki/Agar.io" title="Agar.io wiki">Agar.io</a> example), studying geometry or developing software models of real physical processes.
+        You can use this in game development (see <a href="https://en.wikipedia.org/wiki/Agar.io" title="Agar.io wiki">Agar.io</a> example), studying geometry or developing software models of real physical processes.
     </i>
 </p>
 <p>
