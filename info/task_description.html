@@ -3,25 +3,25 @@
     <p> &quot;Did you see that?&quot; asked Sofia.</p>
     <p> ...moments ago a super massive black hole had just &quot;swallowed&quot; another one...</p>
     <p> &quot;You were right Sofia, that was an incredible event&quot; Stephen said. &quot;So, can I join your A&A (Astronomy & Astrophysics) research group?&quot; </p>
-    <p> Sofia looked at him triumphantly and said - &quot;Really, my plan to rope you into it anyway! We are currently researching black holes and their gravitational fields, and are looking for someone to help us to create a software model that will predict the future state of black holes&quot;.</p>
-    <p> &quot;Hmm, It's very interesting. I'll try to do my best&quot;.
+    <p> Sofia looked at him triumphantly and said - &quot;Really, my plan was to rope you in anyway! We are currently researching black holes and their gravitational fields and we are looking for someone to help us create a software model that will predict the future state of black holes&quot;.</p>
+    <p> &quot;Hmm, it's very interesting. Let me try...&quot;.
 </div>
 <p>
-    You need to help Stephen to implement a software model (function) that predicts the state of black holes under controlled environment. The A&A research team has identified some peculiarities in the behavior of black holes.
+    You need to help Stephen implement a software model (function) that predicts the state of black holes under controlled environment. The A&A research team has identified some peculiarities in the behavior of black holes.
 </p>
 <p>
-    To create software model one should take into account:
+    To create the software model one should take into account:
 </p>
 <ol>
 	<li>The cartesian coordinate system is used to map it out.<br>
-	<li>Each black hole is represented as a circle with <i>x</i> and <i>y</i> (coordinates) and the <i>r</i> (radius).</li>
+	<li>Each black hole is represented as a circle with <i>x</i>, <i>y</i> (center coordinates) and <i>r</i> (radius).</li>
 	<li>In contrast to the area, which may change during the absorption process, the coordinates remain constant.</li>
 	<li>The area of a black hole greatly influences its mass, hence the gravitational field.</li>
-	<li>The absorption process of black holes depends on distance between their centers - starting from the minimal. If the distance between different black holes is equal then first pair should be taken into account.</li>
+	<li>The absorption order of black holes depends on the distance between their centers - starting with the black holes that are closest to each other. If the distance between different black holes is equal then the leftmost black hole in the list should merge first.</li>
 	<li>The absorption process (merging) of black holes is possible <span style="text-decoration: underline">if and only if the following conditions are met</span>:</li>
 	<ul>
-		<li>The intersection area of one of the two black holes is greater or equal 55% (>= 55%) of its current area.</li>
-		<li>The area of one of the two black holes is over 20% larger (>= 20%).</li>
+		<li>The intersection area of the two black holes is greater than or equal to 55% (>= 55%) of one of the two black holes area.</li>
+		<li>The area of one of the two black holes is over 20% (>= 20%) more than the area of the other.</li>
 	</ul>
 	<li>If one black hole absorbs another, their areas are summarized as (S<sub>total</sub> = S<sub>1</sub> + S<sub>2</sub>).</li>
 	<li>The absorption process continues as long as all conditions are met (see p. 6).</li>
