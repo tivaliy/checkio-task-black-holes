@@ -12,8 +12,8 @@ cover = """def cover(f, data):
 
 
 def checker(right_answer, user_answer):
-    # if not user_answer:
-    #     return False, "Your answer is empty"
+    if not user_answer:
+        return False, "Your answer is empty"
     if not isinstance(user_answer, (list, tuple)) or \
              any(not isinstance(line, (list, tuple)) for line in user_answer):
         return False, "It's not lists"
