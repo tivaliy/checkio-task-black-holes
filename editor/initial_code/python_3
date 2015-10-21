@@ -7,12 +7,12 @@ def checkio(data):
 if __name__ == '__main__':
     # These "asserts" using only for self-checking and not necessary for auto-testing
     def checker(user_ans, right_ans):
+        if not user_ans:
+            return False
         if not isinstance(user_ans, (list, tuple)) or \
                 any(not isinstance(line, (list, tuple)) for line in user_ans):
             return False
         if any(not isinstance(x, (float, int)) for l in user_ans for x in l):
-            return False
-        if not user_ans:
             return False
         precision = 0.01
         return all(abs(right_coord - user_coord) <= precision
