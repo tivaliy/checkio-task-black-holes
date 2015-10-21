@@ -12,14 +12,14 @@ cover = """def cover(f, data):
 
 
 def checker(user_answer, right_answer):
+    if not user_answer:
+        return False
     if not isinstance(user_answer, (list, tuple)) or \
              any(not isinstance(line, (list, tuple)) for line in user_answer):
         return False, "It's not lists"
     if any(not isinstance(x, (float, int)) for line in user_answer for x in line):
         return False, "It's not numbers"
     precision = 0.01
-    if not user_answer:
-        return False
     return all(abs(right_coord - user_coord) <= precision
              for right_line, user_line in zip(right_answer, user_answer)
                for right_coord, user_coord in zip(right_line, user_line)), None
